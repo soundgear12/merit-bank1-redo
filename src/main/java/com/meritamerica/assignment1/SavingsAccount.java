@@ -2,8 +2,8 @@ package com.meritamerica.assignment1;
 
 public class SavingsAccount {
 	
-	static double balance;
-	static double interestRate = .01;
+	private double balance;
+	private double interestRate = .01;
 	int years;
 	double futureValue = 1;
 	
@@ -23,16 +23,18 @@ public class SavingsAccount {
 		return futureValue;
 	}
 	
-	boolean withdraw (double amount) {
+	public Boolean withdraw (double amount) {
 		if (amount < balance) {
+			balance -= amount;
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	boolean deposit (double amount) {
+	public Boolean deposit (double amount) {
 		if (amount > 0) {
+			balance =+ amount;
 			return true;
 		} else {
 			return false;
@@ -40,10 +42,11 @@ public class SavingsAccount {
 		
 	}
 	
-	static double futureValue(int years) {
+	public double futureValue(int years) {
 		
 		double futureValue = (balance * Math.pow(1.0 + interestRate, years));
-		return futureValue;
+		double roundedValue = Math.round(futureValue * 100.0) / 100.0;
+		return roundedValue;
 	}
 	@Override
 	public String toString() {

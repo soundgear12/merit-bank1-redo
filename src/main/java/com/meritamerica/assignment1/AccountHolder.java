@@ -71,7 +71,7 @@ public class AccountHolder extends Object {
 
 	@Override
 	public String toString() {
-		return "AccountHolder [Name=" + firstName + middleName + lastName + "\n" +
+		return "AccountHolder [Name=" + firstName + " " + middleName + " " + lastName + "\n" +
 				", ssn=" + ssn + "\n" +
 				" Checking Account Balance: $" + getCheckingAccount().getBalance() + "\n" +
 				" Checking Account Interest Rate: " + getCheckingAccount().getInterestRate() + "\n" +

@@ -20,15 +20,16 @@ public class CheckingAccount {
 		return futureValue;
 	}
 	
-	boolean withdraw (double amount) {
+	public Boolean withdraw (double amount) {
 		if (amount < balance) {
+			balance -= amount;
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	boolean deposit (double amount) {
+	public Boolean deposit (double amount) {
 		if (amount > 0) {
 			balance += amount;
 			return true;
@@ -40,7 +41,8 @@ public class CheckingAccount {
 	double futureValue(int years) {
 		
 		double futureValue = (balance * Math.pow(1 + interestRate, years));
-		return futureValue;
+		double roundedValue = Math.round(futureValue * 100.0) / 100.0;
+		return roundedValue;
 	}
 	@Override
 	public String toString() {
